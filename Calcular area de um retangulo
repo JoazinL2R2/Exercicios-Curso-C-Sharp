@@ -1,0 +1,38 @@
+using System;
+using System.Globalization;
+
+    class Program {
+      public static void Main (string[] args) {
+        
+        Retangulo ret = new Retangulo();
+
+       Console.WriteLine("Entre com a altura e com a largura de um retangulo");
+        Console.Write("Altura:");
+        ret.Altura = double.Parse(Console.ReadLine());
+        Console.Write("Largura:");
+        ret.Largura = double.Parse(Console.ReadLine());
+        Console.WriteLine("Área: " + ret.Area().ToString("F2",CultureInfo.InvariantCulture));
+        Console.WriteLine("Perimetro: " + ret.Perimetro().ToString("F2",CultureInfo.InvariantCulture));
+        Console.WriteLine("Diagonal: " + ret.Diagonal().ToString("F2",CultureInfo.InvariantCulture));
+        
+    }
+        class Retangulo{
+          public double Largura;
+          public double Altura;
+          
+           public double Area(){
+             double area = Largura*Altura;
+             return area;
+           }
+          public double Perimetro(){
+            double perimetro = (2*Largura)+(2*Altura);
+            return perimetro;
+          }
+          public double Diagonal(){
+            double diagonal = Math.Sqrt((Math.Pow(Altura,2) + Math.Pow(Largura,2)));
+            return diagonal;
+          }
+          
+    }
+  }//public override string ToString(){}
+
