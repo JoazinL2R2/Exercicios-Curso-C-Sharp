@@ -1,0 +1,37 @@
+using System;
+
+
+class Program {
+  public static void Main (string[] args) {
+    Aluno notas = new Aluno();
+
+    Console.WriteLine ("Informe o nome do aluno:");
+    notas.nome = Console.ReadLine();
+
+    Console.WriteLine("Informe a nota do primeiro trimestre");
+    notas.nota1 = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Informe a nota do segundo trimestre");
+    notas.nota2 = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Informe a nota do terceiro trimestre");
+    notas.nota3 = double.Parse(Console.ReadLine());
+
+    notas.calcNota(notas.nome,notas.nota1,notas.nota2,notas.nota3);
+  }
+}
+public class Aluno{
+  public string nome;
+  public double nota1,nota2,nota3;
+
+  public void calcNota(string nome,double nota1,double nota2,double nota3){
+    double notaTotal = (nota1 + nota2 + nota3) / 3.0;
+    if(notaTotal < 60){
+        notaTotal = 100 - notaTotal;
+        Console.WriteLine($"O aluno {nome} foi Reprovado faltando {notaTotal} pontos");
+    }
+    else{
+        Console.WriteLine($"O aluno {nome} foi Aprovado com {notaTotal} pontos de média");
+    }
+  }
+}
